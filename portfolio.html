@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Intelligence in Action | Clippy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">C</span>
+                    <span class="logo-text">Clippy</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="portfolio.html" class="nav-link active">Portfolio</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Intelligence in Action</h1>
+                <p class="hero-subtitle">See how we've transformed challenges into intelligent solutions for forward-thinking companies across industries.</p>
+                <div class="hero-cta">
+                    <a href="#case-studies" class="btn btn-primary">View Case Studies</a>
+                    <a href="contact.html" class="btn btn-secondary">Start Your Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Filter -->
+    <section class="section portfolio-filter">
+        <div class="container">
+            <div class="filter-controls">
+                <label for="portfolio-filter">Filter by:</label>
+                <select id="portfolio-filter" class="filter-select">
+                    <option value="all">All Projects</option>
+                    <option value="app-dev">AI App Development</option>
+                    <option value="software">Software Solutions</option>
+                    <option value="design">Design & UX</option>
+                    <option value="content">Content Intelligence</option>
+                    <option value="healthcare">Healthcare</option>
+                    <option value="retail">Retail</option>
+                    <option value="finance">Finance</option>
+                    <option value="education">Education</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Grid -->
+    <section id="case-studies" class="section case-studies">
+        <div class="container">
+            <div class="portfolio-grid">
+                <!-- Case Study 1: HealthAI -->
+                <div id="healthai" class="portfolio-item" data-category="app-dev healthcare">
+                    <div class="portfolio-card">
+                        <div class="portfolio-header">
+                            <span class="portfolio-badge">Healthcare</span>
+                            <span class="portfolio-category">AI App Development</span>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3 class="portfolio-title">HealthAI Predictive Dashboard</h3>
+                            <p class="portfolio-client">Regional Healthcare Network</p>
+                            <p class="portfolio-challenge">High patient readmission rates (22%) and inefficient resource allocation needed predictive analytics solution.</p>
+                            <div class="portfolio-result">
+                                <strong>Result:</strong> 40% reduction in readmission rates, 35% improvement in resource utilization
+                            </div>
+                            <div class="portfolio-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">TensorFlow</span>
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Real-time Analytics</span>
+                            </div>
+                            <a href="#healthai-detail" class="btn btn-outline">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study 2: Retail Personalization -->
+                <div id="retail" class="portfolio-item" data-category="app-dev retail">
+                    <div class="portfolio-card">
+                        <div class="portfolio-header">
+                            <span class="portfolio-badge">Retail</span>
+                            <span class="portfolio-category">AI App Development</span>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3 class="portfolio-title">Retail Personalization Engine</h3>
+                            <p class="portfolio-client">Fashion E-commerce Brand</p>
+                            <p class="portfolio-challenge">Low conversion rates (1.8%) and high cart abandonment (72%) due to basic recommendation system.</p>
+                            <div class="portfolio-result">
+                                <strong>Result:</strong> 35% increase in conversion rate, 28% reduction in cart abandonment
+                            </div>
+                            <div class="portfolio-tech">
+                                <span class="tech-tag">Computer Vision</span>
+                                <span class="tech-tag">NLP</span>
+                                <span class="tech-tag">Recommendation Engines</span>
+                                <span class="tech-tag">Real-time Personalization</span>
+                            </div>
+                            <a href="#retail-detail" class="btn btn-outline">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study 3: Manufacturing Predictive Maintenance -->
+                <div id="manufacturing" class="portfolio-item" data-category="software">
+                    <div class="portfolio-card">
+                        <div class="portfolio-header">
+                            <span class="portfolio-badge">Manufacturing</span>
+                            <span class="portfolio-category">Software Solutions</span>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3 class="portfolio-title">Predictive Maintenance Platform</h3>
+                            <p class="portfolio-client">Industrial Equipment Manufacturer</p>
+                            <p class="portfolio-challenge">Unexpected downtime costing $500K+ annually with fixed maintenance schedules.</p>
+                            <div class="portfolio-result">
+                                <strong>Result:</strong> 60% reduction in unplanned downtime, 40% decrease in maintenance costs
+                            </div>
+                            <div class="portfolio-tech">
+                                <span class="tech-tag">IoT</span>
+                                <span class="tech-tag">Time Series Forecasting</span>
+                                <span class="tech-tag">Anomaly Detection</span>
+                                <span class="tech-tag">Real-time Dashboard</span>
+                            </div>
+                            <a href="#manufacturing-detail" class="btn btn-outline">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study 4: Financial Compliance -->
+                <div id="fintech" class="portfolio-item" data-category="app-dev finance">
+                    <div class="portfolio-card">
+                        <div class="portfolio-header">
+                            <span class="portfolio-badge">Finance</span>
+                            <span class="portfolio-category">AI App Development</span>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3 class="portfolio-title">Financial Compliance AI</h3>
+                            <p class="portfolio-client">Fintech Startup</p>
+                            <p class="portfolio-challenge">200+ hours monthly spent manually reviewing transactions for compliance with changing regulations.</p>
+                            <div class="portfolio-result">
+                                <strong>Result:</strong> 90% reduction in manual review time, 99.7% accuracy in compliance detection
+                            </div>
+                            <div class="portfolio-tech">
+                                <span class="tech-tag">NLP</span>
+                                <span class="tech-tag">Pattern Recognition</span>
+                                <span class="tech-tag">Explainable AI</span>
+                                <span class="tech-tag">Regulatory Monitoring</span>
+                            </div>
+                            <a href="#fintech-detail" class="btn btn-outline">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study 5: Educational Content Personalization -->
+                <div id="education" class="portfolio-item" data-category="design content education">
+                    <div class="portfolio-card">
+                        <div class="portfolio-header">
+                            <span class="portfolio-badge">Education</span>
+                            <span class="portfolio-category">Design & Content Intelligence</span>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3 class="portfolio-title">Adaptive Learning Platform</h3>
+                            <p class="portfolio-client">Online Learning Platform</p>
+                            <p class="portfolio-challenge">High student dropout rates (45%) and low course completion (22%) with one-size-fits-all content.</p>
+                            <div class="portfolio-result">
+                                <strong>Result:</strong> 55% reduction in first-month dropout, 2.3x increase in course completion
+                            </div>
+                            <div class="portfolio-tech">
+                                <span class="tech-tag">Learning Analytics</span>
+                                <span class="tech-tag">Content Difficulty Algorithms</span>
+                                <span class="tech-tag">Engagement Prediction</span>
+                                <span class="tech-tag">Personalized UI/UX</span>
+                            </div>
+                            <a href="#education-detail" class="btn btn-outline">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Summary -->
+    <section class="section results-summary">
+        <div class="container">
+            <h2 class="section-title">Measurable Impact Across Industries</h2>
+            <div class="results-grid">
+                <div class="result-item">
+                    <div class="result-number">$8.2M</div>
+                    <div class="result-label">Total client value generated</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">94%</div>
+                    <div class="result-label">Average prediction accuracy</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">47%</div>
+                    <div class="result-label">Average efficiency improvement</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">100%</div>
+                    <div class="result-label">Client retention rate</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">3.2x</div>
+                    <div class="result-label">Average ROI</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Testimonials -->
+    <section class="section testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <div class="testimonial-carousel">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The HealthAI dashboard transformed how we deliver care. We're now proactive instead of reactive, and our patients are seeing better outcomes."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-name">Dr. Sarah Chen</div>
+                        <div class="author-title">Chief Medical Officer, Regional Healthcare Network</div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Clippy's personalization engine made our site feel like it was designed for each individual customer. The results speak for themselves."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-name">Michael Rodriguez</div>
+                        <div class="author-title">Head of E-commerce, Fashion Retailer</div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The predictive maintenance system transformed our service business. We're now proactive partners to our customers instead of reactive fixers."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-name">James Wilson</div>
+                        <div class="author-title">Service Director, Industrial Manufacturer</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Showcase -->
+    <section class="section process-showcase">
+        <div class="container">
+            <h2 class="section-title">How We Deliver Results</h2>
+            <div class="process-visual">
+                <div class="process-step">
+                    <div class="step-icon">🔍</div>
+                    <h3>Discover</h3>
+                    <p>AI opportunity assessment through data analysis</p>
+                </div>
+                <div class="process-arrow">→</div>
+                <div class="process-step">
+                    <div class="step-icon">🎨</div>
+                    <h3>Design</h3>
+                    <p>Intelligent solution architecture and UX</p>
+                </div>
+                <div class="process-arrow">→</div>
+                <div class="process-step">
+                    <div class="step-icon">⚡</div>
+                    <h3>Develop</h3>
+                    <p>AI-integrated build with best practices</p>
+                </div>
+                <div class="process-arrow">→</div>
+                <div class="process-step">
+                    <div class="step-icon">🚀</div>
+                    <h3>Deploy</h3>
+                    <p>Launch with established feedback loops</p>
+                </div>
+                <div class="process-arrow">→</div>
+                <div class="process-step">
+                    <div class="step-icon">📈</div>
+                    <h3>Evolve</h3>
+                    <p>Continuous optimization based on data</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section final-cta">
+        <div class="container">
+            <h2 class="section-title">Ready to See What AI Can Do for Your Business?</h2>
+            <p class="section-subtitle">Every project starts with understanding your unique challenges and opportunities. Let's explore how intelligent solutions can transform your operations.</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn btn-primary btn-large">Schedule Your AI Assessment</a>
+                <a href="#" class="btn btn-secondary">Download Portfolio PDF</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <span class="logo-icon">C</span>
+                        <span class="logo-text">Clippy</span>
+                    </div>
+                    <p class="footer-tagline">Build Intelligence, Not Just Software</p>
+                    <p class="footer-contact">hello@clippy.world</p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Services</h4>
+                    <a href="services.html#app-dev" class="footer-link">AI App Development</a>
+                    <a href="services.html#software" class="footer-link">Software Solutions</a>
+                    <a href="services.html#design" class="footer-link">AI-Enhanced Design</a>
+                    <a href="services.html#content" class="footer-link">Content Intelligence</a>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Company</h4>
+                    <a href="about.html" class="footer-link">About Us</a>
+                    <a href="portfolio.html" class="footer-link">Portfolio</a>
+                    <a href="contact.html" class="footer-link">Contact</a>
+                    <a href="#" class="footer-link">Careers</a>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Resources</h4>
+                    <a href="#" class="footer-link">Blog</a>
+                    <a href="#" class="footer-link">Case Studies</a>
+                    <a href="#" class="footer-link">AI Insights</a>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">© 2024 Clippy. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">LinkedIn</a>
+                    <a href="#" class="social-link">Twitter</a>
+                    <a href="#" class="social-link">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
