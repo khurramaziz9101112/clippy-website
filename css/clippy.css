@@ -1,0 +1,319 @@
+/* Clippy Character Styles */
+
+/* Clippy Container */
+.clippy-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    width: 120px;
+    height: 180px;
+    transition: all 0.3s ease;
+}
+
+.clippy-container.minimized {
+    width: 60px;
+    height: 60px;
+}
+
+/* Clippy Character */
+.clippy-character {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+    filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
+}
+
+.clippy-character:hover {
+    transform: scale(1.05);
+}
+
+.clippy-character:active {
+    transform: scale(0.95);
+}
+
+/* Paperclip Body */
+.paperclip-body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.paperclip-outer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 12px solid var(--paperclip-silver);
+    border-radius: 60px;
+    box-shadow: 
+        inset 3px 3px 5px rgba(0, 0, 0, 0.2),
+        inset -3px -3px 5px rgba(255, 255, 255, 0.5),
+        3px 3px 8px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #E0E0E0, #A0A0A0);
+}
+
+.paperclip-inner {
+    position: absolute;
+    width: calc(100% - 24px);
+    height: calc(100% - 24px);
+    top: 12px;
+    left: 12px;
+    border: 10px solid transparent;
+    border-radius: 48px;
+    box-shadow: 
+        inset 2px 2px 3px rgba(255, 255, 255, 0.5),
+        inset -2px -2px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Clippy Eyes */
+.clippy-eyes {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 2;
+}
+
+.eye {
+    width: 15px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--office-dark);
+}
+
+.pupil {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--office-dark);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: blink 3s infinite;
+}
+
+@keyframes blink {
+    0%, 45%, 55%, 100% {
+        height: 8px;
+    }
+    48%, 52% {
+        height: 1px;
+    }
+}
+
+/* Clippy Controls */
+.clippy-controls {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    display: flex;
+    gap: 5px;
+    z-index: 3;
+}
+
+.clippy-btn {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all 0.2s ease;
+}
+
+.clippy-btn:hover {
+    transform: scale(1.2);
+}
+
+.clippy-minimize {
+    background: var(--office-green);
+}
+
+.clippy-close {
+    background: var(--error-red);
+}
+
+.clippy-help {
+    background: var(--highlight-yellow);
+    color: var(--office-dark);
+}
+
+/* Speech Bubble */
+.clippy-speech {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    background: white;
+    padding: 10px 15px;
+    border-radius: var(--radius-md);
+    border: 2px solid var(--clippy-blue);
+    box-shadow: var(--shadow-md);
+    max-width: 200px;
+    font-style: italic;
+    color: var(--office-dark);
+    margin-bottom: 10px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.clippy-speech.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.clippy-speech::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 20px;
+    border-width: 10px 10px 0;
+    border-style: solid;
+    border-color: var(--clippy-blue) transparent transparent;
+}
+
+.clippy-speech::after {
+    content: '';
+    position: absolute;
+    bottom: -7px;
+    right: 21px;
+    border-width: 9px 9px 0;
+    border-style: solid;
+    border-color: white transparent transparent;
+}
+
+/* Clippy Animations */
+@keyframes clippy-bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes clippy-tilt {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(5deg);
+    }
+    75% {
+        transform: rotate(-5deg);
+    }
+}
+
+@keyframes clippy-excited {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.clippy-idle {
+    animation: clippy-bounce 3s ease-in-out infinite;
+}
+
+.clippy-thinking {
+    animation: clippy-tilt 2s ease-in-out infinite;
+}
+
+.clippy-excited {
+    animation: clippy-excited 1s ease-in-out infinite;
+}
+
+/* Responsive Clippy */
+@media (max-width: 768px) {
+    .clippy-container {
+        width: 80px;
+        height: 120px;
+        bottom: 10px;
+        right: 10px;
+    }
+    
+    .clippy-container.minimized {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .clippy-eyes {
+        gap: 10px;
+    }
+    
+    .eye {
+        width: 10px;
+        height: 15px;
+    }
+    
+    .pupil {
+        width: 5px;
+        height: 5px;
+    }
+    
+    .clippy-speech {
+        max-width: 150px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Clippy Help Topics */
+.clippy-help-topics {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    background: white;
+    border-radius: var(--radius-md);
+    border: 2px solid var(--clippy-blue);
+    box-shadow: var(--shadow-lg);
+    padding: 10px;
+    min-width: 200px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.clippy-help-topics.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+.help-topic {
+    padding: 8px 12px;
+    margin: 5px 0;
+    background: rgba(0, 78, 140, 0.1);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--paperclip-silver);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+}
+
+.help-topic:hover {
+    background: rgba(0, 78, 140, 0.2);
+    border-color: var(--highlight-yellow);
+    transform: translateX(-3px);
+}
+
+.help-topic::before {
+    content: '💡';
+    margin-right: 8px;
+}

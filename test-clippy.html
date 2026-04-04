@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clippy Theme Test</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.min.css">
+    <link rel="stylesheet" href="css/clippy.css">
+    <style>
+        body {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .test-section {
+            margin: 3rem 0;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            border: 2px solid #C0C0C0;
+        }
+        .component-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .component-demo {
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #D4D4D4;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Clippy Theme Test Page</h1>
+    <p>Testing the Microsoft Office Clippy theme implementation</p>
+    
+    <div class="test-section">
+        <h2>Color Palette</h2>
+        <div class="component-grid">
+            <div class="component-demo">
+                <h3>Primary Colors</h3>
+                <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                    <div style="width: 50px; height: 50px; background: #004E8C; border-radius: 4px;"></div>
+                    <div style="width: 50px; height: 50px; background: #C0C0C0; border-radius: 4px;"></div>
+                    <div style="width: 50px; height: 50px; background: #FFD700; border-radius: 4px;"></div>
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                    Clippy Blue, Paperclip Silver, Highlight Yellow
+                </p>
+            </div>
+            
+            <div class="component-demo">
+                <h3>Office Backgrounds</h3>
+                <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                    <div style="width: 50px; height: 50px; background: #F0F0F0; border-radius: 4px; border: 1px solid #ccc;"></div>
+                    <div style="width: 50px; height: 50px; background: #333333; border-radius: 4px;"></div>
+                    <div style="width: 50px; height: 50px; background: #D4D4D4; border-radius: 4px;"></div>
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                    Office Light, Office Dark, Office Gray
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Buttons</h2>
+        <div class="component-grid">
+            <div class="component-demo">
+                <h3>Primary Button</h3>
+                <button class="btn btn-primary">Click Me</button>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                    Office 97/2000 style with gradient and 3D effect
+                </p>
+            </div>
+            
+            <div class="component-demo">
+                <h3>Secondary Button</h3>
+                <button class="btn btn-secondary">Secondary</button>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                    Silver gradient with 3D border
+                </p>
+            </div>
+            
+            <div class="component-demo">
+                <h3>Help Button</h3>
+                <button class="btn btn-help">Help</button>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                    Yellow gradient with pulse animation
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Forms</h2>
+        <div class="component-demo">
+            <div class="form-group">
+                <label for="test-input">Text Input</label>
+                <input type="text" id="test-input" placeholder="Type something...">
+            </div>
+            
+            <div class="form-group" style="margin-top: 1rem;">
+                <label for="test-textarea">Textarea</label>
+                <textarea id="test-textarea" placeholder="Write something..."></textarea>
+            </div>
+            
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                Office-style inputs with ruled paper background for textarea
+            </p>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Cards</h2>
+        <div class="component-grid">
+            <div class="value-card">
+                <div class="value-icon">🧠</div>
+                <h3 class="value-title">Intelligence Built-In</h3>
+                <p class="value-desc">We don't just add AI features—we build with AI from the ground up.</p>
+            </div>
+            
+            <div class="service-card">
+                <h3 class="service-title">AI Development</h3>
+                <p class="service-desc">Custom AI solutions tailored to your business needs.</p>
+                <a href="#" class="service-link">Learn More</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Animations</h2>
+        <div class="component-grid">
+            <div class="component-demo">
+                <h3>Loading Spinner</h3>
+                <div class="office-loading"></div>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                    Office-style loading animation
+                </p>
+            </div>
+            
+            <div class="component-demo">
+                <h3>Progress Bar</h3>
+                <div class="office-progress">
+                    <div class="office-progress-bar" style="width: 65%;"></div>
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                    Animated progress bar with shine effect
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/clippy.js"></script>
+    
+    <script>
+        // Test animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add page transition class
+            document.body.classList.add('page-transition');
+            
+            // Test button press animation
+            document.querySelectorAll('.btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    console.log('Button clicked:', this.textContent);
+                });
+            });
+            
+            // Test form focus animation
+            document.querySelectorAll('input, textarea').forEach(input => {
+                input.addEventListener('focus', function() {
+                    console.log('Input focused:', this.id);
+                });
+            });
+            
+            // Test card hover animation
+            document.querySelectorAll('.value-card, .service-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    console.log('Card hovered:', this.querySelector('h3').textContent);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

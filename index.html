@@ -7,8 +7,252 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <style>
+/* Critical CSS - Above the fold styles */
+:root {
+    --clippy-blue: #004E8C;
+    --paperclip-silver: #C0C0C0;
+    --highlight-yellow: #FFD700;
+    --office-green: #008000;
+    --error-red: #C00000;
+    --ai-teal: #00C1D4;
+    --neural-purple: #7B61FF;
+    --office-light: #F0F0F0;
+    --office-dark: #333333;
+    --office-gray: #D4D4D4;
+    --font-primary: 'Inter', sans-serif;
+    --font-weight-bold: 700;
+    --font-weight-semibold: 600;
+    --font-weight-regular: 400;
+    --font-weight-light: 300;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight-regular);
+    font-size: 16px;
+    line-height: 1.5;
+    color: #4A5568;
+    background-color: white;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Navigation - Critical for initial render */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.08);
+    z-index: 1000;
+    padding: 1rem 0;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: var(--font-weight-bold);
+    font-size: 1.5rem;
+    color: var(--clippy-blue);
+}
+
+.logo-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    background: linear-gradient(135deg, var(--clippy-blue), var(--neural-purple));
+    color: white;
+    border-radius: 6px;
+    font-weight: var(--font-weight-bold);
+}
+
+.nav-menu {
+    display: none;
+    gap: 2rem;
+}
+
+.nav-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--clippy-blue);
+    transition: 250ms ease;
+}
+
+/* Hero Section - Critical for initial render */
+.hero {
+    padding: 8rem 0 4rem;
+    background: linear-gradient(135deg, #F7FAFC 0%, white 100%);
+    margin-top: 4rem;
+}
+
+.hero .container {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--clippy-blue), var(--neural-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: #4A5568;
+    margin-bottom: 2rem;
+    max-width: 600px;
+}
+
+.hero-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: var(--font-weight-semibold);
+    font-size: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 250ms ease;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--clippy-blue), var(--ai-teal));
+    color: white;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+.btn-secondary {
+    background-color: white;
+    color: var(--clippy-blue);
+    border-color: var(--clippy-blue);
+}
+
+/* Media queries for critical styles */
+@media (min-width: 768px) {
+    .container {
+        padding: 0 2rem;
+    }
+    
+    .nav-menu {
+        display: flex;
+    }
+    
+    .nav-toggle {
+        display: none;
+    }
+    
+    .hero .container {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .hero-cta {
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 480px) {
+    .hero-cta {
+        flex-direction: row;
+    }
+}
+</style>
+    <link rel="stylesheet" href="css/styles.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/clippy.css" media="print" onload="this.media='all'">
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="preload" href="css/styles.min.css" as="style" media="print" onload="this.media='all'">
+    <link rel="preload" href="css/clippy.css" as="style" media="print" onload="this.media='all'">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" as="style" crossorigin>
+    <!-- Lazy Loading Styles -->
+    <style>
+    img[data-src] {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    img[data-src].loaded {
+        opacity: 1;
+    }
+    
+    /* Blur-up technique for images */
+    .lazy-image {
+        background-color: #f0f0f0;
+        background-image: linear-gradient(90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
+        background-size: 200% 100%;
+        animation: loading 1.5s infinite;
+    }
+    
+    @keyframes loading {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+    }
+    
+    /* Prefers-reduced-motion support */
+    @media (prefers-reduced-motion: reduce) {
+        .lazy-image {
+            animation: none;
+        }
+        
+        img[data-src] {
+            transition: none;
+        }
+    }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -39,11 +283,15 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">Build Intelligence, Not Just Software</h1>
-                <p class="hero-subtitle">We're an AI-first digital agency that transforms your ideas into intelligent digital experiences. From AI-powered apps to smart content strategies, we build solutions that think.</p>
+                <h1 class="hero-title">It looks like you're trying to build something intelligent! <span class="clippy-wink">👋</span></h1>
+                <p class="hero-subtitle">Hi there! I'm Clippy, your friendly AI assistant. I help transform your brilliant ideas into smart digital experiences that actually think for themselves. From clever apps to brainy content strategies, I build solutions that learn, adapt, and get smarter every day.</p>
                 <div class="hero-cta">
-                    <a href="contact.html" class="btn btn-primary">Start Your AI Journey</a>
-                    <a href="portfolio.html" class="btn btn-secondary">See Our Work</a>
+                    <a href="contact.html" class="btn btn-primary">Would you like help with your AI project?</a>
+                    <a href="portfolio.html" class="btn btn-secondary">Let me show you what I can do →</a>
+                </div>
+                <div class="clippy-tooltip">
+                    <span class="tooltip-icon">💡</span>
+                    <span class="tooltip-text">P.S. I promise not to pop up uninvited like the old days!</span>
                 </div>
             </div>
             <div class="hero-visual">
@@ -62,27 +310,27 @@
     <!-- Value Proposition Section -->
     <section class="section value-props">
         <div class="container">
-            <h2 class="section-title">Why Choose Clippy?</h2>
+            <h2 class="section-title">Why Work With Your Friendly Neighborhood Clippy?</h2>
             <div class="value-grid">
                 <div class="value-card">
                     <div class="value-icon">🧠</div>
-                    <h3 class="value-title">Intelligence Built-In</h3>
-                    <p class="value-desc">We don't just add AI features—we build with AI from the ground up. Every solution is designed to learn, adapt, and improve.</p>
+                    <h3 class="value-title">Intelligence Is My Middle Name</h3>
+                    <p class="value-desc">I don't just sprinkle AI on top—I bake it right in from the start! Every solution learns, adapts, and gets smarter, just like a good assistant should.</p>
                 </div>
                 <div class="value-card">
                     <div class="value-icon">⚡</div>
-                    <h3 class="value-title">Rapid Innovation</h3>
-                    <p class="value-desc">Leverage our AI-powered development process to go from idea to MVP in weeks, not months.</p>
+                    <h3 class="value-title">Fast, Not Furious</h3>
+                    <p class="value-desc">My AI-powered process turns ideas into working prototypes in weeks, not months. Think of me as your speedy digital sidekick!</p>
                 </div>
                 <div class="value-card">
                     <div class="value-icon">📈</div>
-                    <h3 class="value-title">Built to Evolve</h3>
-                    <p class="value-desc">Our architectures are designed for continuous improvement. Your solution gets smarter over time.</p>
+                    <h3 class="value-title">Gets Smarter Every Day</h3>
+                    <p class="value-desc">I build solutions that evolve and improve over time. Your software won't just work—it'll keep getting better, like fine wine (but for code!).</p>
                 </div>
                 <div class="value-card">
                     <div class="value-icon">🔍</div>
-                    <h3 class="value-title">No Black Boxes</h3>
-                    <p class="value-desc">We explain how everything works. You own the code, understand the AI, and control the roadmap.</p>
+                    <h3 class="value-title">No Magic Tricks Here</h3>
+                    <p class="value-desc">I explain everything in plain English. You'll own the code, understand how the AI works, and always be in the driver's seat. No mysterious black boxes!</p>
                 </div>
             </div>
         </div>
@@ -91,32 +339,32 @@
     <!-- Services Preview -->
     <section class="section services-preview">
         <div class="container">
-            <h2 class="section-title">Our AI-Powered Services</h2>
-            <p class="section-subtitle">We specialize in turning complex challenges into intelligent solutions. Here's how we can help:</p>
+            <h2 class="section-title">My AI-Powered Toolkit</h2>
+            <p class="section-subtitle">Think of me as your digital Swiss Army knife—here are my favorite tools for solving tricky problems:</p>
             <div class="services-grid">
                 <div class="service-card">
-                    <h3 class="service-title">AI App Development</h3>
-                    <p class="service-desc">Intelligent applications that learn from users and improve over time.</p>
-                    <a href="services.html#app-dev" class="service-link">Learn more →</a>
+                    <h3 class="service-title">Apps That Actually Learn</h3>
+                    <p class="service-desc">I build applications that don't just follow instructions—they learn from your users and get smarter every day. It's like teaching your software to think!</p>
+                    <a href="services.html#app-dev" class="service-link">Let me show you how →</a>
                 </div>
                 <div class="service-card">
-                    <h3 class="service-title">Smart Software Solutions</h3>
-                    <p class="service-desc">Systems that analyze, adapt, and optimize themselves autonomously.</p>
-                    <a href="services.html#software" class="service-link">Learn more →</a>
+                    <h3 class="service-title">Software That Works Smarter</h3>
+                    <p class="service-desc">Why settle for software that just does what it's told? I create systems that analyze, adapt, and optimize themselves. They're basically overachievers!</p>
+                    <a href="services.html#software" class="service-link">See the clever bits →</a>
                 </div>
                 <div class="service-card">
-                    <h3 class="service-title">AI-Enhanced Design</h3>
-                    <p class="service-desc">Interfaces that anticipate user needs and adapt to behavior patterns.</p>
-                    <a href="services.html#design" class="service-link">Learn more →</a>
+                    <h3 class="service-title">Design That Reads Minds</h3>
+                    <p class="service-desc">Good design solves problems. Great design anticipates them! I create interfaces that understand what users want before they even ask.</p>
+                    <a href="services.html#design" class="service-link">Peek at my designs →</a>
                 </div>
                 <div class="service-card">
-                    <h3 class="service-title">Content Intelligence</h3>
-                    <p class="service-desc">Strategies powered by data insights and predictive analytics.</p>
-                    <a href="services.html#content" class="service-link">Learn more →</a>
+                    <h3 class="service-title">Content That Connects</h3>
+                    <p class="service-desc">Tired of guessing what content works? I use AI to analyze trends, predict what your audience loves, and create content that actually gets results.</p>
+                    <a href="services.html#content" class="service-link">Read my secrets →</a>
                 </div>
             </div>
             <div class="text-center">
-                <a href="services.html" class="btn btn-outline">Explore All Services</a>
+                <a href="services.html" class="btn btn-outline">Explore All My Superpowers →</a>
             </div>
         </div>
     </section>
@@ -124,17 +372,17 @@
     <!-- Portfolio Highlight -->
     <section class="section portfolio-highlight">
         <div class="container">
-            <h2 class="section-title">Intelligent Solutions in Action</h2>
+            <h2 class="section-title">See Me in Action! 🎬</h2>
             <div class="case-study-card">
                 <div class="case-study-content">
-                    <div class="case-study-badge">Featured Case Study</div>
-                    <h3 class="case-study-title">HealthAI Dashboard</h3>
-                    <p class="case-study-challenge"><strong>Challenge:</strong> Healthcare provider needed predictive analytics for patient outcomes with high readmission rates.</p>
-                    <p class="case-study-solution"><strong>Solution:</strong> AI-powered dashboard with 94% prediction accuracy for patient readmission risk.</p>
+                    <div class="case-study-badge">My Favorite Success Story</div>
+                    <h3 class="case-study-title">The HealthAI Dashboard That Saved the Day</h3>
+                    <p class="case-study-challenge"><strong>The Puzzle:</strong> A healthcare provider was struggling with too many patients returning to the hospital. They needed a crystal ball to predict who might need extra help.</p>
+                    <p class="case-study-solution"><strong>My Clever Solution:</strong> I built an AI-powered dashboard that could predict patient readmission risk with 94% accuracy. It's like having a medical detective on staff!</p>
                     <div class="case-study-result">
-                        <strong>Result:</strong> 40% reduction in readmission rates and 35% improvement in resource utilization.
+                        <strong>The Happy Ending:</strong> 40% fewer patients returning to the hospital and 35% better use of resources. Everyone wins!
                     </div>
-                    <a href="portfolio.html#healthai" class="btn btn-primary">View Case Study</a>
+                    <a href="portfolio.html#healthai" class="btn btn-primary">Read the Full Adventure →</a>
                 </div>
                 <div class="case-study-visual">
                     <div class="dashboard-preview">
@@ -154,7 +402,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <a href="portfolio.html" class="btn btn-outline">View All Case Studies</a>
+                <a href="portfolio.html" class="btn btn-outline">See More of My Heroic Deeds →</a>
             </div>
         </div>
     </section>
@@ -162,7 +410,7 @@
     <!-- Trust Indicators -->
     <section class="section trust-indicators">
         <div class="container">
-            <h2 class="section-title">Trusted by Innovative Teams</h2>
+            <h2 class="section-title">My Happy Clients Say the Nicest Things! 😊</h2>
             <div class="client-logos">
                 <div class="logo-placeholder">Tech Startups</div>
                 <div class="logo-placeholder">Healthcare Innovators</div>
@@ -172,19 +420,19 @@
             <div class="stats-grid">
                 <div class="stat-item">
                     <div class="stat-number">50+</div>
-                    <div class="stat-label">AI Projects Delivered</div>
+                    <div class="stat-label">AI Adventures Completed</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number">94%</div>
-                    <div class="stat-label">Client Retention Rate</div>
+                    <div class="stat-label">Clients Who Keep Coming Back</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number">40%</div>
-                    <div class="stat-label">Average Efficiency Gain</div>
+                    <div class="stat-label">Average Efficiency Boost</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number">2x</div>
-                    <div class="stat-label">Faster Time-to-Market</div>
+                    <div class="stat-label">Faster Results Delivery</div>
                 </div>
             </div>
         </div>
@@ -193,11 +441,11 @@
     <!-- Final CTA -->
     <section class="section final-cta">
         <div class="container">
-            <h2 class="section-title">Ready to Build Something Intelligent?</h2>
-            <p class="section-subtitle">Let's discuss how AI can transform your business. No jargon, no pressure—just a conversation about what's possible.</p>
+            <h2 class="section-title">Ready to Build Something Brilliant Together?</h2>
+            <p class="section-subtitle">It looks like you're trying to transform your business with AI! Would you like some help with that? 😉 Let's chat about what's possible—no jargon, no pressure, just friendly conversation.</p>
             <div class="cta-buttons">
-                <a href="contact.html" class="btn btn-primary btn-large">Schedule a Free AI Consultation</a>
-                <a href="#" class="btn btn-secondary">Download Our AI Readiness Guide</a>
+                <a href="contact.html" class="btn btn-primary btn-large">Let's Have a Chat! ☕</a>
+                <a href="#" class="btn btn-secondary">Download My Friendly AI Guide</a>
             </div>
         </div>
     </section>
@@ -211,7 +459,7 @@
                         <span class="logo-icon">C</span>
                         <span class="logo-text">Clippy</span>
                     </div>
-                    <p class="footer-tagline">Build Intelligence, Not Just Software</p>
+                    <p class="footer-tagline">Your Friendly AI Assistant, Always Ready to Help! 🤖</p>
                     <p class="footer-contact">hello@clippy.world</p>
                 </div>
                 <div class="footer-col">
@@ -247,6 +495,79 @@
         </div>
     </footer>
 
+    <script src="js/script.min.js" defer></script>
+    <!-- Lazy Loading Support -->
+    <script>
+    (function() {
+        'use strict';
+        
+        // Lazy load images with Intersection Observer
+        function initLazyLoading() {
+            if ('IntersectionObserver' in window) {
+                const lazyImages = document.querySelectorAll('img[data-src]');
+                
+                const imageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.src = img.dataset.src;
+                            img.classList.add('loaded');
+                            imageObserver.unobserve(img);
+                        }
+                    });
+                }, {
+                    rootMargin: '50px 0px',
+                    threshold: 0.01
+                });
+                
+                lazyImages.forEach(function(img) {
+                    imageObserver.observe(img);
+                });
+            } else {
+                // Fallback for older browsers
+                const lazyImages = document.querySelectorAll('img[data-src]');
+                let lazyImageThrottle;
+                
+                function lazyLoad() {
+                    if (lazyImageThrottle) {
+                        clearTimeout(lazyImageThrottle);
+                    }
+                    
+                    lazyImageThrottle = setTimeout(function() {
+                        const scrollTop = window.pageYOffset;
+                        lazyImages.forEach(function(img) {
+                            if (img.offsetTop < (window.innerHeight + scrollTop)) {
+                                img.src = img.dataset.src;
+                                img.classList.add('loaded');
+                            }
+                        });
+                        
+                        if (lazyImages.length == 0) {
+                            document.removeEventListener('scroll', lazyLoad);
+                            window.removeEventListener('resize', lazyLoad);
+                            window.removeEventListener('orientationchange', lazyLoad);
+                        }
+                    }, 20);
+                }
+                
+                document.addEventListener('scroll', lazyLoad);
+                window.addEventListener('resize', lazyLoad);
+                window.addEventListener('orientationchange', lazyLoad);
+                lazyLoad();
+            }
+        }
+        
+        // Initialize when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initLazyLoading);
+        } else {
+            initLazyLoading();
+        }
+    })();
+    </script>
+    
+    <!-- Clippy Interactive Assistant -->
+    <script src="js/clippy.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

@@ -1,0 +1,38 @@
+{
+  "name": "clippy-website",
+  "version": "1.0.0",
+  "description": "A modern, responsive website for Clippy - an AI-first digital agency that transforms ideas into intelligent digital experiences.",
+  "main": "index.js",
+  "scripts": {
+    "optimize": "npm run minify-css && npm run minify-js && npm run critical-css && npm run optimize-js && npm run optimize-animations && npm run lazy-loading",
+    "minify-css": "npx cleancss -o css/styles.min.css css/styles.css",
+    "minify-js": "npx terser js/script.js -o js/script.min.js --compress --mangle",
+    "critical-css": "node extract-critical-css.js",
+    "optimize-js": "node optimize-js.js",
+    "optimize-animations": "node optimize-animations.js",
+    "lazy-loading": "node implement-lazy-loading.js",
+    "build": "npm run optimize",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "echo 'Deployment script would run here'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khurramaziz9101112/clippy-website.git"
+  },
+  "keywords": [
+    "clippy",
+    "website",
+    "performance",
+    "optimization"
+  ],
+  "author": "Khurram Aziz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/khurramaziz9101112/clippy-website/issues"
+  },
+  "homepage": "https://github.com/khurramaziz9101112/clippy-website#readme",
+  "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "terser": "^5.31.0"
+  }
+}
