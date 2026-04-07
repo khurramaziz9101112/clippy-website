@@ -3,574 +3,300 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clippy - Build Intelligence, Not Just Software</title>
+    <title>Clippy - Your Friendly AI Assistant | Build Intelligence, Not Just Software</title>
+    <meta name="description" content="Hi there! I'm Clippy, your friendly AI assistant from the Office days, reborn for the AI era. I help transform ideas into intelligent digital experiences.">
+    
+    <!-- Office 97/2000 Inspired Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-/* Critical CSS - Above the fold styles */
-:root {
-    --clippy-blue: #004E8C;
-    --paperclip-silver: #C0C0C0;
-    --highlight-yellow: #FFD700;
-    --office-green: #008000;
-    --error-red: #C00000;
-    --ai-teal: #00C1D4;
-    --neural-purple: #7B61FF;
-    --office-light: #F0F0F0;
-    --office-dark: #333333;
-    --office-gray: #D4D4D4;
-    --font-primary: 'Inter', sans-serif;
-    --font-weight-bold: 700;
-    --font-weight-semibold: 600;
-    --font-weight-regular: 400;
-    --font-weight-light: 300;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: var(--font-primary);
-    font-weight: var(--font-weight-regular);
-    font-size: 16px;
-    line-height: 1.5;
-    color: #4A5568;
-    background-color: white;
-}
-
-.container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-}
-
-/* Navigation - Critical for initial render */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: white;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.08);
-    z-index: 1000;
-    padding: 1rem 0;
-}
-
-.navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: var(--font-weight-bold);
-    font-size: 1.5rem;
-    color: var(--clippy-blue);
-}
-
-.logo-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 2rem;
-    height: 2rem;
-    background: linear-gradient(135deg, var(--clippy-blue), var(--neural-purple));
-    color: white;
-    border-radius: 6px;
-    font-weight: var(--font-weight-bold);
-}
-
-.nav-menu {
-    display: none;
-    gap: 2rem;
-}
-
-.nav-toggle {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
-}
-
-.nav-toggle span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background-color: var(--clippy-blue);
-    transition: 250ms ease;
-}
-
-/* Hero Section - Critical for initial render */
-.hero {
-    padding: 8rem 0 4rem;
-    background: linear-gradient(135deg, #F7FAFC 0%, white 100%);
-    margin-top: 4rem;
-}
-
-.hero .container {
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
-}
-
-.hero-content {
-    flex: 1;
-}
-
-.hero-title {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    background: linear-gradient(135deg, var(--clippy-blue), var(--neural-purple));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.hero-subtitle {
-    font-size: 1.1rem;
-    color: #4A5568;
-    margin-bottom: 2rem;
-    max-width: 600px;
-}
-
-.hero-cta {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.btn {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    border-radius: 6px;
-    font-weight: var(--font-weight-semibold);
-    font-size: 1rem;
-    text-align: center;
-    cursor: pointer;
-    transition: all 250ms ease;
-    border: 2px solid transparent;
-}
-
-.btn-primary {
-    background: linear-gradient(135deg, var(--clippy-blue), var(--ai-teal));
-    color: white;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.12);
-}
-
-.btn-secondary {
-    background-color: white;
-    color: var(--clippy-blue);
-    border-color: var(--clippy-blue);
-}
-
-/* Media queries for critical styles */
-@media (min-width: 768px) {
-    .container {
-        padding: 0 2rem;
-    }
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
     
-    .nav-menu {
-        display: flex;
-    }
+    <!-- Office Clippy CSS -->
+    <link rel="stylesheet" href="css/office-clippy.css">
     
-    .nav-toggle {
-        display: none;
-    }
-    
-    .hero .container {
-        flex-direction: row;
-        align-items: center;
-    }
-    
-    .hero-title {
-        font-size: 3rem;
-    }
-    
-    .hero-cta {
-        flex-direction: row;
-    }
-}
-
-@media (min-width: 480px) {
-    .hero-cta {
-        flex-direction: row;
-    }
-}
-</style>
-    <link rel="stylesheet" href="css/styles.min.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="css/clippy.css" media="print" onload="this.media='all'">
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    <link rel="preload" href="css/styles.min.css" as="style" media="print" onload="this.media='all'">
-    <link rel="preload" href="css/clippy.css" as="style" media="print" onload="this.media='all'">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" as="style" crossorigin>
-    <!-- Lazy Loading Styles -->
-    <style>
-    img[data-src] {
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-    
-    img[data-src].loaded {
-        opacity: 1;
-    }
-    
-    /* Blur-up technique for images */
-    .lazy-image {
-        background-color: #f0f0f0;
-        background-image: linear-gradient(90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
-        background-size: 200% 100%;
-        animation: loading 1.5s infinite;
-    }
-    
-    @keyframes loading {
-        0% { background-position: 200% 0; }
-        100% { background-position: -200% 0; }
-    }
-    
-    /* Prefers-reduced-motion support */
-    @media (prefers-reduced-motion: reduce) {
-        .lazy-image {
-            animation: none;
-        }
-        
-        img[data-src] {
-            transition: none;
-        }
-    }
-    </style>
+    <!-- Clippy Interactive JavaScript -->
+    <script src="js/clippy-interactive.js" defer></script>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">
-                <a href="index.html" class="logo">
-                    <span class="logo-icon">C</span>
-                    <span class="logo-text">Clippy</span>
-                </a>
-            </div>
+    <!-- Office Style Navigation -->
+    <nav class="office-nav">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">📎</div>
+                <span>Clippy AI</span>
+            </a>
             <div class="nav-menu">
-                <a href="index.html" class="nav-link active">Home</a>
-                <a href="services.html" class="nav-link">Services</a>
-                <a href="portfolio.html" class="nav-link">Portfolio</a>
-                <a href="about.html" class="nav-link">About</a>
-                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
             </div>
-            <button class="nav-toggle" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- Hero Section with Clippy Speech Bubble -->
+    <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">It looks like you're trying to build something intelligent! <span class="clippy-wink">👋</span></h1>
-                <p class="hero-subtitle">Hi there! I'm Clippy, your friendly AI assistant. I help transform your brilliant ideas into smart digital experiences that actually think for themselves. From clever apps to brainy content strategies, I build solutions that learn, adapt, and get smarter every day.</p>
-                <div class="hero-cta">
-                    <a href="contact.html" class="btn btn-primary">Would you like help with your AI project?</a>
-                    <a href="portfolio.html" class="btn btn-secondary">Let me show you what I can do →</a>
+                <div class="clippy-speech-bubble">
+                    <h1 class="hero-title">It looks like you're trying to build something intelligent! 👋</h1>
+                    <p class="hero-subtitle">
+                        Hi there! I'm Clippy, your friendly AI assistant from the Office days, reborn for the AI era! 
+                        Remember me? I'm back and better than ever—now I help transform brilliant ideas into smart digital 
+                        experiences that actually think for themselves. From clever apps to brainy content strategies, 
+                        I build solutions that learn, adapt, and get smarter every day.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#contact" class="btn btn-primary">Would you like help with your AI project?</a>
+                        <a href="#portfolio" class="btn btn-secondary">Let me show you what I can do →</a>
+                    </div>
                 </div>
+                
                 <div class="clippy-tooltip">
-                    <span class="tooltip-icon">💡</span>
-                    <span class="tooltip-text">P.S. I promise not to pop up uninvited like the old days!</span>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="ai-visual">
-                    <div class="neural-node"></div>
-                    <div class="neural-node"></div>
-                    <div class="neural-node"></div>
-                    <div class="neural-connection"></div>
-                    <div class="neural-connection"></div>
-                    <div class="neural-connection"></div>
+                    <small>💡 P.S. I promise not to pop up uninvited like the old days!</small>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Value Proposition Section -->
-    <section class="section value-props">
+    <!-- Why Choose Clippy Section -->
+    <section class="section" id="why-clippy">
         <div class="container">
             <h2 class="section-title">Why Work With Your Friendly Neighborhood Clippy?</h2>
             <div class="value-grid">
                 <div class="value-card">
                     <div class="value-icon">🧠</div>
                     <h3 class="value-title">Intelligence Is My Middle Name</h3>
-                    <p class="value-desc">I don't just sprinkle AI on top—I bake it right in from the start! Every solution learns, adapts, and gets smarter, just like a good assistant should.</p>
+                    <p class="value-desc">
+                        I don't just sprinkle AI on top—I bake it right in from the start! Every solution learns, 
+                        adapts, and gets smarter, just like a good assistant should. Think of me as your digital 
+                        brain trust.
+                    </p>
                 </div>
+                
                 <div class="value-card">
                     <div class="value-icon">⚡</div>
                     <h3 class="value-title">Fast, Not Furious</h3>
-                    <p class="value-desc">My AI-powered process turns ideas into working prototypes in weeks, not months. Think of me as your speedy digital sidekick!</p>
+                    <p class="value-desc">
+                        My AI-powered process turns ideas into working prototypes in weeks, not months. 
+                        Think of me as your speedy digital sidekick who actually gets things done!
+                    </p>
                 </div>
+                
                 <div class="value-card">
                     <div class="value-icon">📈</div>
                     <h3 class="value-title">Gets Smarter Every Day</h3>
-                    <p class="value-desc">I build solutions that evolve and improve over time. Your software won't just work—it'll keep getting better, like fine wine (but for code!).</p>
+                    <p class="value-desc">
+                        I build solutions that evolve and improve over time. Your software won't just work—it'll 
+                        keep getting better, like fine wine (but for code!).
+                    </p>
                 </div>
+                
                 <div class="value-card">
                     <div class="value-icon">🔍</div>
                     <h3 class="value-title">No Magic Tricks Here</h3>
-                    <p class="value-desc">I explain everything in plain English. You'll own the code, understand how the AI works, and always be in the driver's seat. No mysterious black boxes!</p>
+                    <p class="value-desc">
+                        I explain everything in plain English. You'll own the code, understand how the AI works, 
+                        and always be in the driver's seat. No mysterious black boxes!
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Preview -->
-    <section class="section services-preview">
+    <!-- Services Section -->
+    <section class="section" id="services">
         <div class="container">
             <h2 class="section-title">My AI-Powered Toolkit</h2>
-            <p class="section-subtitle">Think of me as your digital Swiss Army knife—here are my favorite tools for solving tricky problems:</p>
+            <p class="section-subtitle">
+                Think of me as your digital Swiss Army knife—here are my favorite tools for solving tricky problems:
+            </p>
+            
             <div class="services-grid">
                 <div class="service-card">
-                    <h3 class="service-title">Apps That Actually Learn</h3>
-                    <p class="service-desc">I build applications that don't just follow instructions—they learn from your users and get smarter every day. It's like teaching your software to think!</p>
-                    <a href="services.html#app-dev" class="service-link">Let me show you how →</a>
+                    <div class="service-icon">🤖</div>
+                    <h3>Apps That Actually Learn</h3>
+                    <p>
+                        I build applications that don't just follow instructions—they learn from your users 
+                        and get smarter every day. It's like teaching your software to think!
+                    </p>
+                    <a href="#contact" class="btn btn-secondary" style="margin-top: 15px;">Learn More</a>
                 </div>
+                
                 <div class="service-card">
-                    <h3 class="service-title">Software That Works Smarter</h3>
-                    <p class="service-desc">Why settle for software that just does what it's told? I create systems that analyze, adapt, and optimize themselves. They're basically overachievers!</p>
-                    <a href="services.html#software" class="service-link">See the clever bits →</a>
+                    <div class="service-icon">💻</div>
+                    <h3>Software That Works Smarter</h3>
+                    <p>
+                        Why settle for software that just does what it's told? I create systems that analyze, 
+                        adapt, and optimize themselves. They're basically overachievers!
+                    </p>
+                    <a href="#contact" class="btn btn-secondary" style="margin-top: 15px;">Learn More</a>
                 </div>
+                
                 <div class="service-card">
-                    <h3 class="service-title">Design That Reads Minds</h3>
-                    <p class="service-desc">Good design solves problems. Great design anticipates them! I create interfaces that understand what users want before they even ask.</p>
-                    <a href="services.html#design" class="service-link">Peek at my designs →</a>
+                    <div class="service-icon">🎨</div>
+                    <h3>Design That Reads Minds</h3>
+                    <p>
+                        Good design solves problems. Great design anticipates them! I create interfaces that 
+                        understand what users want before they even ask.
+                    </p>
+                    <a href="#contact" class="btn btn-secondary" style="margin-top: 15px;">Learn More</a>
                 </div>
-                <div class="service-card">
-                    <h3 class="service-title">Content That Connects</h3>
-                    <p class="service-desc">Tired of guessing what content works? I use AI to analyze trends, predict what your audience loves, and create content that actually gets results.</p>
-                    <a href="services.html#content" class="service-link">Read my secrets →</a>
-                </div>
-            </div>
-            <div class="text-center">
-                <a href="services.html" class="btn btn-outline">Explore All My Superpowers →</a>
             </div>
         </div>
     </section>
 
     <!-- Portfolio Highlight -->
-    <section class="section portfolio-highlight">
+    <section class="section" id="portfolio" style="background: linear-gradient(135deg, var(--office-light-gray) 0%, var(--office-white) 100%);">
         <div class="container">
             <h2 class="section-title">See Me in Action! 🎬</h2>
-            <div class="case-study-card">
-                <div class="case-study-content">
-                    <div class="case-study-badge">My Favorite Success Story</div>
-                    <h3 class="case-study-title">The HealthAI Dashboard That Saved the Day</h3>
-                    <p class="case-study-challenge"><strong>The Puzzle:</strong> A healthcare provider was struggling with too many patients returning to the hospital. They needed a crystal ball to predict who might need extra help.</p>
-                    <p class="case-study-solution"><strong>My Clever Solution:</strong> I built an AI-powered dashboard that could predict patient readmission risk with 94% accuracy. It's like having a medical detective on staff!</p>
-                    <div class="case-study-result">
-                        <strong>The Happy Ending:</strong> 40% fewer patients returning to the hospital and 35% better use of resources. Everyone wins!
-                    </div>
-                    <a href="portfolio.html#healthai" class="btn btn-primary">Read the Full Adventure →</a>
+            
+            <div class="value-card" style="max-width: 800px; margin: 0 auto;">
+                <div class="value-icon">🏥</div>
+                <h3 class="value-title">The HealthAI Dashboard That Saved the Day</h3>
+                
+                <div style="margin: 20px 0; padding: 20px; background: var(--office-light-gray); border-radius: 6px;">
+                    <h4 style="color: var(--office-blue); margin-bottom: 10px;">The Puzzle:</h4>
+                    <p>A healthcare provider was struggling with too many patients returning to the hospital. 
+                    They needed a crystal ball to predict who might need extra help.</p>
+                    
+                    <h4 style="color: var(--office-blue); margin-top: 20px; margin-bottom: 10px;">My Clever Solution:</h4>
+                    <p>I built an AI-powered dashboard that could predict patient readmission risk with 94% accuracy. 
+                    It's like having a medical detective on staff!</p>
+                    
+                    <h4 style="color: var(--office-blue); margin-top: 20px; margin-bottom: 10px;">The Happy Ending:</h4>
+                    <p>40% fewer patients returning to the hospital and 35% better use of resources. Everyone wins!</p>
                 </div>
-                <div class="case-study-visual">
-                    <div class="dashboard-preview">
-                        <div class="dashboard-header">
-                            <div class="dashboard-title">HealthAI Predictive Dashboard</div>
-                            <div class="dashboard-stats">
-                                <div class="stat">94% Accuracy</div>
-                                <div class="stat">40% Reduction</div>
-                            </div>
-                        </div>
-                        <div class="dashboard-content">
-                            <div class="chart"></div>
-                            <div class="chart"></div>
-                            <div class="alerts"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center">
-                <a href="portfolio.html" class="btn btn-outline">See More of My Heroic Deeds →</a>
+                
+                <a href="#contact" class="btn btn-primary">Read the Full Adventure →</a>
             </div>
         </div>
     </section>
 
-    <!-- Trust Indicators -->
-    <section class="section trust-indicators">
+    <!-- Stats Section -->
+    <section class="section">
         <div class="container">
             <h2 class="section-title">My Happy Clients Say the Nicest Things! 😊</h2>
-            <div class="client-logos">
-                <div class="logo-placeholder">Tech Startups</div>
-                <div class="logo-placeholder">Healthcare Innovators</div>
-                <div class="logo-placeholder">E-commerce Leaders</div>
-                <div class="logo-placeholder">Educational Institutions</div>
+            
+            <div class="value-grid">
+                <div class="value-card" style="text-align: center;">
+                    <div class="value-icon" style="font-size: 48px;">🚀</div>
+                    <h3 class="value-title">Tech Startups</h3>
+                    <p class="value-desc">"Clippy helped us launch 3x faster!"</p>
+                </div>
+                
+                <div class="value-card" style="text-align: center;">
+                    <div class="value-icon" style="font-size: 48px;">🏥</div>
+                    <h3 class="value-title">Healthcare Innovators</h3>
+                    <p class="value-desc">"Transformed our patient care with AI"</p>
+                </div>
+                
+                <div class="value-card" style="text-align: center;">
+                    <div class="value-icon" style="font-size: 48px;">🛒</div>
+                    <h3 class="value-title">E-commerce Leaders</h3>
+                    <p class="value-desc">"40% boost in customer engagement"</p>
+                </div>
+                
+                <div class="value-card" style="text-align: center;">
+                    <div class="value-icon" style="font-size: 48px;">🎓</div>
+                    <h3 class="value-title">Educational Institutions</h3>
+                    <p class="value-desc">"Revolutionized our learning platform"</p>
+                </div>
             </div>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">AI Adventures Completed</div>
+            
+            <div class="value-grid" style="margin-top: 40px;">
+                <div class="value-card" style="text-align: center;">
+                    <div style="font-size: 48px; color: var(--office-blue); font-weight: bold;">50+</div>
+                    <h3 class="value-title">AI Adventures Completed</h3>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number">94%</div>
-                    <div class="stat-label">Clients Who Keep Coming Back</div>
+                
+                <div class="value-card" style="text-align: center;">
+                    <div style="font-size: 48px; color: var(--office-blue); font-weight: bold;">94%</div>
+                    <h3 class="value-title">Clients Who Keep Coming Back</h3>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number">40%</div>
-                    <div class="stat-label">Average Efficiency Boost</div>
+                
+                <div class="value-card" style="text-align: center;">
+                    <div style="font-size: 48px; color: var(--office-blue); font-weight: bold;">40%</div>
+                    <h3 class="value-title">Average Efficiency Boost</h3>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number">2x</div>
-                    <div class="stat-label">Faster Results Delivery</div>
+                
+                <div class="value-card" style="text-align: center;">
+                    <div style="font-size: 48px; color: var(--office-blue); font-weight: bold;">2x</div>
+                    <h3 class="value-title">Faster Results Delivery</h3>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Final CTA -->
-    <section class="section final-cta">
+    <section class="section" id="contact" style="background: linear-gradient(135deg, var(--office-blue) 0%, #003366 100%); color: white;">
         <div class="container">
-            <h2 class="section-title">Ready to Build Something Brilliant Together?</h2>
-            <p class="section-subtitle">It looks like you're trying to transform your business with AI! Would you like some help with that? 😉 Let's chat about what's possible—no jargon, no pressure, just friendly conversation.</p>
-            <div class="cta-buttons">
-                <a href="contact.html" class="btn btn-primary btn-large">Let's Have a Chat! ☕</a>
-                <a href="#" class="btn btn-secondary">Download My Friendly AI Guide</a>
+            <div class="clippy-speech-bubble" style="background: white; color: var(--office-black);">
+                <h2 class="hero-title" style="color: var(--office-blue);">Ready to Build Something Brilliant Together?</h2>
+                <p class="hero-subtitle" style="color: var(--office-dark-gray);">
+                    It looks like you're trying to transform your business with AI! Would you like some help with that? 😉 
+                    Let's chat about what's possible—no jargon, no pressure, just friendly conversation.
+                </p>
+                <div class="hero-cta">
+                    <a href="mailto:hello@clippy.world" class="btn btn-primary" style="background: var(--office-blue); color: white;">Schedule a Free AI Consultation</a>
+                    <a href="#services" class="btn btn-secondary" style="background: white; color: var(--office-blue);">Explore My Services</a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="office-footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <div class="footer-logo">
-                        <span class="logo-icon">C</span>
-                        <span class="logo-text">Clippy</span>
-                    </div>
-                    <p class="footer-tagline">Your Friendly AI Assistant, Always Ready to Help! 🤖</p>
-                    <p class="footer-contact">hello@clippy.world</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Clippy AI</h3>
+                    <p>Your friendly AI assistant from the Office days, reborn for the AI era. Building intelligence, not just software.</p>
                 </div>
-                <div class="footer-col">
-                    <h4 class="footer-title">Services</h4>
-                    <a href="services.html#app-dev" class="footer-link">AI App Development</a>
-                    <a href="services.html#software" class="footer-link">Software Solutions</a>
-                    <a href="services.html#design" class="footer-link">AI-Enhanced Design</a>
-                    <a href="services.html#content" class="footer-link">Content Intelligence</a>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
                 </div>
-                <div class="footer-col">
-                    <h4 class="footer-title">Company</h4>
-                    <a href="about.html" class="footer-link">About Us</a>
-                    <a href="portfolio.html" class="footer-link">Portfolio</a>
-                    <a href="contact.html" class="footer-link">Contact</a>
-                    <a href="#" class="footer-link">Careers</a>
-                </div>
-                <div class="footer-col">
-                    <h4 class="footer-title">Resources</h4>
-                    <a href="#" class="footer-link">Blog</a>
-                    <a href="#" class="footer-link">Case Studies</a>
-                    <a href="#" class="footer-link">AI Insights</a>
-                    <a href="#" class="footer-link">Privacy Policy</a>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li>📧 hello@clippy.world</li>
+                        <li>🌐 clippy.world</li>
+                        <li>📍 Based in the Cloud</li>
+                    </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p class="copyright">© 2024 Clippy. All rights reserved.</p>
-                <div class="social-links">
-                    <a href="#" class="social-link">LinkedIn</a>
-                    <a href="#" class="social-link">Twitter</a>
-                    <a href="#" class="social-link">GitHub</a>
-                </div>
+            
+            <div class="copyright">
+                <p>© 2026 Clippy AI. All rights reserved. | Made with ❤️ and a little bit of Office 97 nostalgia</p>
+                <p style="margin-top: 10px; font-size: 12px;">"It looks like you're trying to build something intelligent!" – Clippy</p>
             </div>
         </div>
     </footer>
 
-    <script src="js/script.min.js" defer></script>
-    <!-- Lazy Loading Support -->
-    <script>
-    (function() {
-        'use strict';
-        
-        // Lazy load images with Intersection Observer
-        function initLazyLoading() {
-            if ('IntersectionObserver' in window) {
-                const lazyImages = document.querySelectorAll('img[data-src]');
-                
-                const imageObserver = new IntersectionObserver(function(entries, observer) {
-                    entries.forEach(function(entry) {
-                        if (entry.isIntersecting) {
-                            const img = entry.target;
-                            img.src = img.dataset.src;
-                            img.classList.add('loaded');
-                            imageObserver.unobserve(img);
-                        }
-                    });
-                }, {
-                    rootMargin: '50px 0px',
-                    threshold: 0.01
-                });
-                
-                lazyImages.forEach(function(img) {
-                    imageObserver.observe(img);
-                });
-            } else {
-                // Fallback for older browsers
-                const lazyImages = document.querySelectorAll('img[data-src]');
-                let lazyImageThrottle;
-                
-                function lazyLoad() {
-                    if (lazyImageThrottle) {
-                        clearTimeout(lazyImageThrottle);
-                    }
-                    
-                    lazyImageThrottle = setTimeout(function() {
-                        const scrollTop = window.pageYOffset;
-                        lazyImages.forEach(function(img) {
-                            if (img.offsetTop < (window.innerHeight + scrollTop)) {
-                                img.src = img.dataset.src;
-                                img.classList.add('loaded');
-                            }
-                        });
-                        
-                        if (lazyImages.length == 0) {
-                            document.removeEventListener('scroll', lazyLoad);
-                            window.removeEventListener('resize', lazyLoad);
-                            window.removeEventListener('orientationchange', lazyLoad);
-                        }
-                    }, 20);
-                }
-                
-                document.addEventListener('scroll', lazyLoad);
-                window.addEventListener('resize', lazyLoad);
-                window.addEventListener('orientationchange', lazyLoad);
-                lazyLoad();
-            }
-        }
-        
-        // Initialize when DOM is ready
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initLazyLoading);
-        } else {
-            initLazyLoading();
-        }
-    })();
-    </script>
-    
-    <!-- Clippy Interactive Assistant -->
-    <script src="js/clippy.js"></script>
-    <script src="js/tooltips.js"></script>
-    <script src="js/clippy-enhanced.js"></script>
-    <script src="js/performance.js"></script>
-    <script src="js/script.js"></script>
+    <!-- Animated Clippy Character -->
+    <div class="clippy-character" id="clippy-character">
+        <div class="paperclip-body">
+            <div class="paperclip-outer"></div>
+            <div class="paperclip-inner"></div>
+        </div>
+        <div class="clippy-eyes">
+            <div class="eye">
+                <div class="pupil"></div>
+            </div>
+            <div class="eye">
+                <div class="pupil"></div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

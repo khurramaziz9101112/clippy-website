@@ -1,0 +1,587 @@
+/* Office 97/2000 Clippy Theme CSS */
+/* Generated with Claude Opus - Recreating clippy.world with conversation content */
+
+/* Office 97/2000 Color Palette */
+:root {
+    --office-blue: #004E8C;
+    --office-light-blue: #0080FF;
+    --office-gray: #C0C0C0;
+    --office-dark-gray: #808080;
+    --office-light-gray: #E0E0E0;
+    --office-white: #FFFFFF;
+    --office-black: #000000;
+    --office-green: #008000;
+    --office-yellow: #FFFF00;
+    --office-red: #C00000;
+    --paperclip-silver: #A0A0A0;
+    --highlight-blue: #00B0F0;
+    
+    --font-primary: 'Inter', sans-serif;
+    --font-clippy: 'Comic Neue', cursive;
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    background: linear-gradient(135deg, var(--office-light-gray) 0%, var(--office-white) 100%);
+    color: var(--office-black);
+    line-height: 1.6;
+    min-height: 100vh;
+    border: 8px solid var(--office-gray);
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Office 97 Window Border Effect */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid var(--office-dark-gray);
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Office 97 Style Navigation */
+.office-nav {
+    background: linear-gradient(to bottom, var(--office-blue), #003366);
+    padding: 12px 0;
+    border-bottom: 3px solid var(--office-gray);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-clippy);
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--office-white);
+    text-decoration: none;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--paperclip-silver), var(--office-white));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    border: 2px solid var(--office-white);
+    box-shadow: 0 0 10px rgba(255,255,255,0.5);
+    animation: paperclip-spin 4s linear infinite;
+}
+
+@keyframes paperclip-spin {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(90deg); }
+    50% { transform: rotate(180deg); }
+    75% { transform: rotate(270deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.nav-menu {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    color: var(--office-white);
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: var(--office-white);
+}
+
+/* Hero Section with Clippy Style */
+.hero {
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--office-white) 0%, var(--office-light-gray) 100%);
+    border-bottom: 4px solid var(--office-gray);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="%23C0C0C0" stroke-width="1" opacity="0.3"/></svg>');
+    opacity: 0.1;
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.clippy-speech-bubble {
+    background: var(--office-white);
+    border: 3px solid var(--office-blue);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 40px;
+    position: relative;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+    font-family: var(--font-clippy);
+    font-size: 18px;
+}
+
+.clippy-speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 20px 20px 0;
+    border-style: solid;
+    border-color: var(--office-blue) transparent transparent;
+}
+
+.clippy-speech-bubble::before {
+    content: '';
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 16px 16px 0;
+    border-style: solid;
+    border-color: var(--office-white) transparent transparent;
+}
+
+.hero-title {
+    font-size: 48px;
+    color: var(--office-blue);
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    color: var(--office-dark-gray);
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.hero-cta {
+    margin-top: 30px;
+}
+
+/* Office Style Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border: 2px solid;
+    border-radius: 4px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    margin: 5px;
+}
+
+.btn-primary {
+    background: linear-gradient(to bottom, var(--office-blue), #003366);
+    color: var(--office-white);
+    border-color: var(--office-dark-gray);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(to bottom, #0055AA, var(--office-blue));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.btn-secondary {
+    background: linear-gradient(to bottom, var(--office-gray), #A0A0A0);
+    color: var(--office-black);
+    border-color: var(--office-dark-gray);
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(to bottom, #D0D0D0, var(--office-gray));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Sections */
+.section {
+    padding: 60px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 36px;
+    color: var(--office-blue);
+    margin-bottom: 50px;
+    font-weight: bold;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background: var(--office-blue);
+    margin: 10px auto;
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 18px;
+    color: var(--office-dark-gray);
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Value Cards - Office Window Style */
+.value-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.value-card {
+    background: var(--office-white);
+    border: 3px solid var(--office-gray);
+    border-radius: 8px;
+    padding: 30px;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--office-blue);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+}
+
+.value-card::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    height: 6px;
+    background: linear-gradient(to right, var(--office-blue), var(--highlight-blue));
+    border-radius: 8px 8px 0 0;
+}
+
+.value-icon {
+    font-size: 40px;
+    margin-bottom: 20px;
+    display: inline-block;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.value-title {
+    font-size: 22px;
+    color: var(--office-blue);
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.value-desc {
+    color: var(--office-dark-gray);
+    line-height: 1.7;
+}
+
+/* Services Section */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.service-card {
+    background: var(--office-white);
+    border: 2px solid var(--office-gray);
+    border-radius: 6px;
+    padding: 25px;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    border-color: var(--office-blue);
+    box-shadow: 0 5px 15px rgba(0,78,140,0.1);
+}
+
+.service-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--office-blue), var(--highlight-blue));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: white;
+}
+
+/* Footer - Office Style */
+.office-footer {
+    background: linear-gradient(to bottom, var(--office-dark-gray), #606060);
+    color: var(--office-white);
+    padding: 40px 0;
+    border-top: 4px solid var(--office-gray);
+    margin-top: 60px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.footer-section h3 {
+    color: var(--office-white);
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: var(--office-light-gray);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--office-white);
+    text-decoration: underline;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: var(--office-light-gray);
+    font-size: 14px;
+}
+
+/* Clippy Animation */
+.clippy-character {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 80px;
+    height: 120px;
+    z-index: 1000;
+    cursor: pointer;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.paperclip-body {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.paperclip-outer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 10px solid var(--paperclip-silver);
+    border-radius: 40px;
+    background: linear-gradient(135deg, #E0E0E0, #B0B0B0);
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.3);
+}
+
+.paperclip-inner {
+    position: absolute;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    top: 10px;
+    left: 10px;
+    border: 8px solid transparent;
+    border-radius: 32px;
+}
+
+.clippy-eyes {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 2;
+}
+
+.eye {
+    width: 12px;
+    height: 18px;
+    background: white;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--office-black);
+}
+
+.pupil {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--office-black);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: blink 4s infinite;
+}
+
+@keyframes blink {
+    0%, 45%, 55%, 100% { height: 6px; }
+    50% { height: 1px; }
+}
+
+/* Clippy Tooltip */
+.clippy-tooltip {
+    text-align: center;
+    margin-top: 20px;
+    font-style: italic;
+    color: var(--office-dark-gray);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+    
+    .hero-title {
+        font-size: 36px;
+    }
+    
+    .hero-subtitle {
+        font-size: 18px;
+    }
+    
+    .section-title {
+        font-size: 28px;
+    }
+    
+    .value-grid,
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .clippy-character {
+        width: 60px;
+        height: 90px;
+        bottom: 10px;
+        right: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 28px;
+    }
+    
+    .hero-subtitle {
+        font-size: 16px;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 14px;
+        display: block;
+        margin: 10px auto;
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .clippy-speech-bubble {
+        padding: 20px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .clippy-character,
+    .office-nav,
+    .btn {
+        display: none;
+    }
+    
+    body {
+        border: none;
+    }
+    
+    body::before {
+        display: none;
+    }
+}

@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clippy - Your Friendly AI Assistant | Build Intelligence, Not Just Software</title>
+    <meta name="description" content="Hi there! I'm Clippy, your friendly AI assistant from the Office days, reborn for the AI era. I help transform ideas into intelligent digital experiences.">
+    
+    <!-- Office 97/2000 Inspired Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Office 97/2000 Style CSS -->
+    <style>
+        /* Office 97/2000 Color Palette */
+        :root {
+            --office-blue: #004E8C;
+            --office-light-blue: #0080FF;
+            --office-gray: #C0C0C0;
+            --office-dark-gray: #808080;
+            --office-light-gray: #E0E0E0;
+            --office-white: #FFFFFF;
+            --office-black: #000000;
+            --office-green: #008000;
+            --office-yellow: #FFFF00;
+            --office-red: #C00000;
+            --paperclip-silver: #A0A0A0;
+            --highlight-blue: #00B0F0;
+            
+            --font-primary: 'Inter', sans-serif;
+            --font-clippy: 'Comic Neue', cursive;
+        }
+        
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-primary);
+            background: linear-gradient(135deg, var(--office-light-gray) 0%, var(--office-white) 100%);
+            color: var(--office-black);
+            line-height: 1.6;
+            min-height: 100vh;
+            border: 8px solid var(--office-gray);
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* Office 97 Window Border Effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 2px solid var(--office-dark-gray);
+            pointer-events: none;
+            z-index: 9999;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Office 97 Style Navigation */
+        .office-nav {
+            background: linear-gradient(to bottom, var(--office-blue), #003366);
+            padding: 12px 0;
+            border-bottom: 3px solid var(--office-gray);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-clippy);
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--office-white);
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--paperclip-silver), var(--office-white));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            border: 2px solid var(--office-white);
+            box-shadow: 0 0 10px rgba(255,255,255,0.5);
+            animation: paperclip-spin 4s linear infinite;
+        }
+        
+        @keyframes paperclip-spin {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(90deg); }
+            50% { transform: rotate(180deg); }
+            75% { transform: rotate(270deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-link {
+            color: var(--office-white);
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--office-white);
+        }
+        
+        /* Hero Section with Clippy Style */
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--office-white) 0%, var(--office-light-gray) 100%);
+            border-bottom: 4px solid var(--office-gray);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="%23C0C0C0" stroke-width="1" opacity="0.3"/></svg>');
+            opacity: 0.1;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .clippy-speech-bubble {
+            background: var(--office-white);
+            border: 3px solid var(--office-blue);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+            position: relative;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+            font-family: var(--font-clippy);
+            font-size: 18px;
+        }
+        
+        .clippy-speech-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 20px 20px 0;
+            border-style: solid;
+            border-color: var(--office-blue) transparent transparent;
+        }
+        
+        .clippy-speech-bubble::before {
+            content: '';
+            position: absolute;
+            bottom: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 16px 16px 0;
+            border-style: solid;
+            border-color: var(--office-white) transparent transparent;
+        }
+        
+        .hero-title {
+            font-size: 48px;
+            color: var(--office-blue);
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .hero-subtitle {
+            font-size: 20px;
+            color: var(--office-dark-gray);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        /* Office Style Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border: 2px solid;
+            border-radius: 4px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            margin: 5px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(to bottom, var(--office-blue), #003366);
+            color: var(--office-white);
+            border-color: var(--office-dark-gray);
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(to bottom, #0055AA, var(--office-blue));
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(to bottom, var(--office-gray), #A0A0A0);
+            color: var(--office-black);
+            border-color: var(--office-dark-gray);
+        }
+        
+        .btn-secondary:hover {
+            background: linear-gradient(to bottom, #D0D0D0, var(--office-gray));
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        /* Value Cards - Office Window Style */
+        .section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            color: var(--office-blue);
+            margin-bottom: 50px;
+            font-weight: bold;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--office-blue);
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+        
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .value-card {
+            background: var(--office-white);
+            border: 3px solid var(--office-gray);
+            border-radius: 8px;
+            padding: 30px;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .value-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--office-blue);
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            height: 6px;
+            background: linear-gradient(to right, var(--office-blue), var(--highlight-blue));
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .value-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .value-title {
+            font-size: 22px;
+            color: var(--office-blue);
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .value-desc {
+            color: var(--office-dark-gray);
+            line-height: 1.7;
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .service-card {
+            background: var(--office-white);
+            border: 2px solid var(--office-gray);
+            border-radius: 6px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            border-color: var(--office-blue);
+            box-shadow: 0 5px 15px rgba(0,78,140,0.1);
+        }
+        
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--office-blue), var(--highlight-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: white;
+        }
+        
+        /* Footer - Office Style */
+        .office-footer {
+            background: linear-gradient(to bottom, var(--office-dark-gray), #606060);
+            color: var(--office-white);
+            padding: 40px 0;
+            border-top: 4px solid var(--office-gray);
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .footer-section h3 {
+            color: var(--office-white);
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--office-light-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--office-white);
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--office-light-gray);
+            font-size: 14px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .hero-subtitle {
+                font-size: 18px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .value-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Clippy Animation */
+        .clippy-character {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 80px;
+            height: 120px;
+            z-index: 1000;
+            cursor: pointer;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .paperclip-body {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        
+        .paperclip-outer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 10px solid var(--paperclip-silver);
+            border-radius: 40px;
+            background: linear-gradient(135deg, #E0E0E0, #B0B0B0);
+            box-shadow: 3px 3px 10px rgba(0,0,0,0.3);
+        }
+        
+        .paperclip-inner {
+            position: absolute;
+            width: calc(100% - 20px);
+            height: calc(100% - 20px);
+            top: 10px;
+            left: 10px;
+            border: 8px solid transparent;
+            border-radius: 32px;
+        }
+        
+        .clippy-eyes {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 2;
+        }
+        
+        .eye {
+            width: 12px;
+            height: 18px;
+            background: white;
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--office-black);
+        }
+        
+        .pupil {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: var(--office-black);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: blink 4s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 45%, 55%, 100% { height: 6px; }
+            50% { height: 1px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Office Style Navigation -->
+    <nav class="office-nav">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">📎</div>
+                <span>Clippy AI</span>
+            </a>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Clippy Speech Bubble -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="clippy-speech-bubble">
+                    <h1 class="hero-title">It looks like you're trying to build something intelligent! 👋</h1>
+                    <p class="hero-subtitle">
+                        Hi there! I'm Clippy, your friendly AI assistant from the Office days, reborn for the AI era! 
+                        Remember me? I'm back and better than ever—now I help transform brilliant ideas into smart digital 
+                        experiences that actually think for themselves. From clever apps to brainy content strategies, 
+                        I build solutions that learn, adapt, and get smarter every day.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#contact" class="btn btn-primary">Would you like help with your AI project?</a>
+                        <a href="#portfolio" class="btn btn-secondary">Let me show you what I can do →</a>
+                    </div>
+                </div>
+                
+                <div class="clippy-tooltip">
+                    <small>💡 P.S. I promise not to pop up uninvited like the old days!</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Clippy Section -->
+    <section class="section" id="why-clippy">
+        <div class="container">
+            <h2 class="section-title">Why Work With Your Friendly Neighborhood Clippy?</h2>
+            <div class="value-grid">
+                <div class="value-card">
+                    <div class="value-icon">🧠</div>
+                    <h3 class="value-title">Intelligence Is My Middle Name</h3>
+                    <p class="value-desc">
+                        I don't just sprinkle AI on top—I bake it right in from the start! Every solution learns, 
+                        adapts, and gets smarter, just like a good assistant should. Think of me as your digital 
+                        brain trust.
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">⚡</div>
+                    <h3 class="value-title">Fast, Not Furious</h3>
+                    <p class="value-desc">
+                        My AI-powered process turns ideas into working prototypes in weeks, not months. 
+                        Think of me as your speedy digital sidekick who actually gets things done!
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">📈</div>
+                    <h3 class="value-title">Gets Smarter Every Day</h3>
+                    <p class="value-desc">
+                        I build solutions that evolve and improve over time. Your software won't just work—it'll 
+                        keep getting better, like fine wine (but for code!).
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">🔍</div>
+                    <h3 class="value-title">No Magic Tricks Here</h3>
+                    <p class="value-desc">
+                        I explain everything in plain English. You'll own the code, understand how the AI works, 
+                        and always be in the driver's seat. No mysterious black boxes!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <h2 class="section-title">My AI-Powered Toolkit</h2>
+            <p class="section-subtitle" style="text-align: center; margin-bottom: 40px; color: var(--office-dark-gray);">
+                Think of me as your digital Swiss Army knife—here are my favorite tools for solving tricky problems:
+            </p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🤖</div>
+                    <h3>Apps That Actually Learn</h3>
+                    <p>
+                        I build applications that don't just follow instructions—they learn from your users 
+                        and get smarter every day. It's like teaching your software to think!
+                    </p>
+                    <a href="#contact" class="btn btn-secondary" style="margin-top: 15px;">Learn More</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3>Software That Works Smarter</h3>
+                    <p>
+                        Why settle for software that just does what it's told? I create systems that analyze, 
+                        adapt, and optimize themselves. They're basically overachievers!
+                    </p>
+                    <a href="#contact" class="btn btn-secondary" style="margin-top: 15px;">Learn More</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>Design That Reads Minds</h3>
+                    <p>
+                        Good design solves problems. Great design anticipates them! I create interfaces that 
+                        understand what users want before they even ask.
+                    </p>
+                    <a href="#contact" class="btn btn-secondary" style="margin-top: 15px;">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Highlight -->
+    <section class="section" id="portfolio" style="background: linear-gradient(135deg, var(--office-light-gray) 0%, var(--office-white) 100%);">
+        <div class="container">
+            <h2 class="section-title">See Me in Action! 🎬</h2>
+            
+            <div class="value-card" style="max-width: 800px; margin: 0 auto;">
+                <div class="value-icon">🏥</div>
+                <h3 class="value-title">The HealthAI Dashboard That Saved the Day</h3>
+                
+                <div style="margin: 20px 0; padding: 20px; background: var(--office-light-gray); border-radius: 6px;">
+                    <h4 style="color: var(--office-blue); margin-bottom: 10px;">The Puzzle:</h4>
+                    <p>A healthcare provider was struggling with too many patients returning to the hospital. 
+                    They needed a crystal ball to predict who might need extra help.</p>
+                    
+                    <h4 style="color: var(--office-blue); margin-top: 20px; margin-bottom: 10px;">My Clever Solution:</h4>
+                    <p>I built an AI-powered dashboard that could predict patient readmission risk with 94% accuracy. 
+                    It's like having a medical detective on staff!</p>
+                    
+                    <h4 style="color: var(--office-blue); margin-top: 20px; margin-bottom: 10px;">The Happy Ending:</h4>
+                    <p>40% fewer patients returning to the hospital and 35% better use of resources. Everyone wins!</p>
+                </div>
+                
+                <a href="#contact" class="btn btn-primary">Read the Full Adventure →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">My Happy Clients Say the Nicest Things! 😊</h2>
+            
+            <div class="value-grid">
+                <div class="value-card" style="text-align: center;">
+                    <div class="value-icon" style="font-size: 48px;">🚀</div>
+                    <h3 class="value-title">Tech Startups</h3>
+                    <p class="value-desc">"Clippy helped us launch 3x faster!"</p>
+                </div>
+                
+                <div class="value-card" style="text-align: center;">
+                    <div class="value-icon" style="font-size: 48px;">🏥</div>
+                    <h3 class="value-title">Healthcare Innovators</h3>
+                    <p class="value-desc">"Transformed our patient care with AI"</p>
+                </div>
+                
+                <div class="value-card" style="text-align: center;">
+                    <div class="value-icon" style="font-size: 48px;">🛒</div>
+                    <h3 class="value-title">E-commerce Leaders</h3>
+                    <p class="value-desc">"40% boost in customer engagement"</p>
+                </div>
+                
+                <div class="value-card" style="text-align: center;">
+                    <div class="value-icon" style="font-size: 48px;">🎓</div>
+                    <h3 class="value-title">Educational Institutions</h3>
+                    <p class="value-desc">"Revolutionized our learning platform"</p>
+                </div>
+            </div>
+            
+            <div class="value-grid" style="margin-top: 40px;">
+                <div class="value-card" style="text-align: center;">
+                    <div style="font-size: 48px; color: var(--office-blue); font-weight: bold;">50+</div>
+                    <h3 class="value-title">AI Adventures Completed</h3>
+                </div>
+                
+                <div class="value-card" style="text-align: center;">
+                    <div style="font-size: 48px; color: var(--office-blue); font-weight: bold;">94%</div>
+                    <h3 class="value-title">Clients Who Keep Coming Back</h3>
+                </div>
+                
+                <div class="value-card" style="text-align: center;">
+                    <div style="font-size: 48px; color: var(--office-blue); font-weight: bold;">40%</div>
+                    <h3 class="value-title">Average Efficiency Boost</h3>
+                </div>
+                
+                <div class="value-card" style="text-align: center;">
+                    <div style="font-size: 48px; color: var(--office-blue); font-weight: bold;">2x</div>
+                    <h3 class="value-title">Faster Results Delivery</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section" id="contact" style="background: linear-gradient(135deg, var(--office-blue) 0%, #003366 100%); color: white;">
+        <div class="container">
+            <div class="clippy-speech-bubble" style="background: white; color: var(--office-black);">
+                <h2 class="hero-title" style="color: var(--office-blue);">Ready to Build Something Brilliant Together?</h2>
+                <p class="hero-subtitle" style="color: var(--office-dark-gray);">
+                    It looks like you're trying to transform your business with AI! Would you like some help with that? 😉 
+                    Let's chat about what's possible—no jargon, no pressure, just friendly conversation.
+                </p>
+                <div class="hero-cta">
+                    <a href="mailto:hello@clippy.world" class="btn btn-primary" style="background: var(--office-blue); color: white;">Schedule a Free AI Consultation</a>
+                    <a href="#services" class="btn btn-secondary" style="background: white; color: var(--office-blue);">Explore My Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="office-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Clippy AI</h3>
+                    <p>Your friendly AI assistant from the Office days, reborn for the AI era. Building intelligence, not just software.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li>📧 hello@clippy.world</li>
+                        <li>🌐 clippy.world</li>
+                        <li>📍 Based in the Cloud</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2026 Clippy AI. All rights reserved. | Made with ❤️ and a little bit of Office 97 nostalgia</p>
+                <p style="margin-top: 10px; font-size: 12px;">"It looks like you're trying to build something intelligent!" – Clippy</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Animated Clippy Character -->
+    <div class="clippy-character" id="clippy-character">
+        <div class="paperclip-body">
+            <div class="paperclip-outer"></div>
+            <div class="paperclip-inner"></div>
+        </div>
+        <div class="clippy-eyes">
+            <div class="eye">
+                <div class="pupil"></div>
+            </div>
+            <div class="eye">
+                <div class="pupil"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Interactive Clippy -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const clippy = document.getElementById('clippy-character');
+            const speechBubbles = document.querySelectorAll('.clippy-speech-bubble');
+            
+            // Make Clippy interactive
+            clippy.addEventListener('click', function() {
+                // Random Clippy quotes
+                const quotes = [
+                    "Hi there! Need help with something?",
+                    "It looks like you're exploring my website!",
+                    "Would you like assistance with your AI project?",
+                    "I'm here to help you build something intelligent!",
+                    "Remember the good old Office days?",
+                    "Let me know if you need any guidance!",
+                    "Looking for something specific?",
+                    "I'm your friendly neighborhood Clippy!"
+                ];
+                
+                const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+                alert(`Clippy says: "${randomQuote}"`);
+            });
+            
+            // Add hover effect to speech bubbles
+            speechBubbles.forEach(bubble => {
+                bubble.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.02)';
+                    this.style.transition = 'transform 0.3s ease';
+                });
+                
+                bubble.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+            
+            // Add smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Add Office 97 style console log
+            console.log('%c📎 Clippy AI Website Loaded!', 'color: #004E8C; font-size: 16px; font-weight: bold;');
+            console.log('%c"Hi there! I see you\'re checking the console. Need help with something?" - Clippy', 'color: #008000; font-style: italic;');
+        });
+    </script>
+</body>
+</html>
